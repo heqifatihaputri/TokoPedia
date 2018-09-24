@@ -1,2 +1,37 @@
-<h1>Store#index</h1>
-<p>Find me in app/views/store/index.html.erb</p>
+<% content_for :header do %>
+<section class="hero is-warning">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Browse the latest products on TokoPedia
+      </h1>
+      <%= form_tag products_path, :method => 'get' do %>
+      <%= label_tag(:search, "") %>
+        <p>
+          <%= text_field_tag :search, params[:search], placeholder: "Searching Product" %>
+          <%= submit_tag "Search", :name => nil %>
+        </p><br>
+      <% end %>
+    </div>
+  </div>
+</section>
+<% end %>
+
+<div class="instrument-index-grid pt4">
+  <% @products.each do |product| %>
+  <div class="instrument border-light">
+    <div class="instrument-thumb">
+    <%= link_to image_tag(product.image_url(:thumb)), product %>
+    </div>
+
+    <div class="pa3">
+      <h3 class="fw7 f4 title"><%= link_to product.name, product %></h3>
+      <p class="has-text-gray fg pt1">Sold by <%= product.store.name %></p>
+      <p class="f3 fw6 has-text-right pt2 price"><%= number_to_currency(product.price) %></p>
+    </div>
+  </div>
+  <% end %>
+</div>
+  <hr />
+<%= paginate @products %>
+<%= page_entries_info @products %>

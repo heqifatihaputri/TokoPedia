@@ -37,21 +37,18 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="field is-grouped">
-              
-              <%# if cart_has_item %>
-                <%#= link_to cart_path(@cart), class:"navbar-item button is-warning" do %>
-           <!--     <span class="icon is-small">
-                  <i class="fa fa-shopping-cart"></i>
-                </span>
-                <span>Cart
-                  <%#= cart_count_over_one %>
-                </span> -->
-              <%# end %>
-            <%# end %> 
 
             <% if user_signed_in? %>
-              <%= link_to 'Sell', '#', class: "navbar-item button is-dark" %>
-
+              <% if current_user.store %>
+                <%= link_to 'Sell', new_product_path, class: "navbar-item button is-dark" %>
+                <%= link_to 'My Product', products_path, class: "navbar-item" %>
+              <% end %>
+              <div class="navbar-item">
+              <% unless current_user.store %>
+                Please make a store to sell =>
+              <% end %>
+                <%= link_to 'Store', stores_path, class: "navbar-item" %>
+              </div>
               <div class="navbar-item has-dropdown is-hoverable">
                 <%= link_to 'Account', edit_user_registration_path, class: "navbar-item" %>
               <div class="navbar-dropdown is-right">
@@ -61,8 +58,9 @@
             </div>
           <% else %>
 
-          <%= link_to "Sign In", new_user_session_path, class:"navbar-item button is-warning" %>
+          <%= link_to "Sign In", new_user_session_path, class:"navbar-item is-warning" %>
           <%= link_to "Sign Up", new_user_registration_path, class:"navbar-item is-warning" %>
+          <%= link_to "Admin", admin_root_path, class:"navbar-item button is-warning" %>
 
           <% end %>
 
@@ -79,6 +77,7 @@
       <%= yield %>
 
     </div>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   </body>
 </html>
