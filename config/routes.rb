@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :orders
   resources :carts
   resources :stores
+  resources :store
   resources :product_photos
   resources :products do
     member do

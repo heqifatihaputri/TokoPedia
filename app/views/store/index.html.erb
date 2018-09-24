@@ -3,9 +3,9 @@
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
-        Browse the latest products on TokoPedia
+        Browse the latest on TokoPedia
       </h1>
-      <%= form_tag products_path, :method => 'get' do %>
+      <%= form_tag store_index_path, :method => 'get' do %>
       <%= label_tag(:search, "") %>
         <p>
           <%= text_field_tag :search, params[:search], placeholder: "Searching Product" %>
