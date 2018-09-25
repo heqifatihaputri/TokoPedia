@@ -20,11 +20,11 @@
 <div class="instrument-index-grid pt4">
   <% @products.each do |product| %>
   <div class="instrument border-light">
-    <div class="instrument-thumb">
+    <div class="instrument-thumb", data-turbolinks="false">
     <%= link_to image_tag(product.image_url(:thumb)), product %>
     </div>
 
-    <div class="pa3">
+    <div class="pa3", data-turbolinks="false">
       <h3 class="fw7 f4 title"><%= link_to product.name, product %></h3>
       <p class="has-text-gray fg pt1">Sold by <%= product.store.name %></p>
       <p class="f3 fw6 has-text-right pt2 price"><%= number_to_currency(product.price) %></p>
