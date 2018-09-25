@@ -54,6 +54,20 @@
             </div>
         </div>
 
+         <div class="field">
+          <div class="control">
+            <%= f.label :category_id %><br />
+            <%= f.collection_select :category_id, Category.order(:name), :id, :name, include_blank: true %>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <%= f.label :sub_category_id %><br />
+             <%= f.grouped_collection_select :sub_category_id, Category.order(:name), :sub_categories, :name, :id, :name, include_blank: true %>
+          </div>
+        </div>
+
         <output id="list"></output>
       <hr />
 

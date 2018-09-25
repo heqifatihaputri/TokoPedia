@@ -29,6 +29,16 @@
         </tr>
 
         <tr>
+          <td class="has-text-weight-bold">Category:</td>
+          <td><%= @product.category.name %></td>
+        </tr>
+
+        <tr>
+          <td class="has-text-weight-bold">Sub Category:</td>
+          <td><%= @product.sub_category.name %></td>
+        </tr>
+
+        <tr>
           <% @product_photos.each do |p| %>
           <%= link_to image_tag(p.photo_url(:dfl)), image_path(p.photo_url(:dfl)), style: "max-width: 20px; max-height: 20px", data: {lightbox: 'example-set', title: "My Picture"} %>
           <% if @product.store.user == current_user %>
