@@ -11,14 +11,20 @@
               <%= f.input :keywords , required: true, input_html: { class:"input" }, wrapper: false, label_html: { class: "label" } %>
             </div>
           </div>
+        </div>
 
-          <div class="field">
-            <div class="control">
-              <b><%= f.label :category_id %></b><br />
-              <%= f.collection_select :category_id, Category.order(:name), :id, :name, include_blank: true %>
-            </div>
+        <div class="field">
+          <div class="control">
+            <b><%= f.label :category_id %></b><br />
+            <%= f.collection_select :category_id, Category.order(:name), :id, :name, include_blank: true %>
           </div>
+        </div>
 
+        <div class="field">
+          <div class="control">
+            <b><%= f.label :sub_category_id %></b><br />
+             <%= f.grouped_collection_select :sub_category_id, Category.order(:name), :sub_categories, :name, :id, :name, include_blank: true %>
+          </div>
         </div>
 
         <div class="field">
