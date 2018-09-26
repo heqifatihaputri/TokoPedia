@@ -1,34 +1,47 @@
-<p id="notice"><%= notice %></p>
+<% content_for :body_class, 'bg-light' %>
 
-<p>
-  <strong>User:</strong>
-  <%= @order.user.name %>
-</p>
+<section class="section instrument-show">
+  <div class="colums">
+    <div class="column is-8">
+        <h1 class="title is-2">ORDER</h1>
 
-<p>
-  <strong>Email:</strong>
-  <%= @order.email %>
-</p>
+      <div class="content pa4 mt3 bg-white border-radius-3">
 
-<p>
-  <strong>Address:</strong>
-  <%= @order.user.address %>
-</p>
+        <h3 class="subtitle is-4 pt5">Details</h3>
 
-<p>
-  <strong>Telephone:</strong>
-  <%= @order.user.telephone %>
-</p>
+        <table class="table is-narrow is-fullwidth">
+          <tr>
+            <td class="has-text-weight-bold">User :</td>
+            <td><%= @order.user.name %></td>
+          </tr>
+          <tr>
+            <td class="has-text-weight-bold">Email :</td>
+            <td><%= @order.email %></td>
+          </tr>
+          <tr>
+            <td class="has-text-weight-bold">Address :</td>
+            <td><%= @order.user.address %></td>
+          </tr>
+          <tr>
+            <td class="has-text-weight-bold">Telephone :</td>
+            <td><%= @order.user.telephone %></td>
+          </tr>
+          <tr>
+            <td class="has-text-weight-bold">Product :</td>
+            <td><% @order.line_items.each do |line_item| %>
+                  <%= line_item.product.name %>
+                <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td class="has-text-weight-bold">Total Price :</td>
+            <td><%= @order.total_price %></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Product:</strong>
-  <%= @order.line_items %>
-</p>
-
-<p>
-  <strong>Total price:</strong>
-  <%= @order.total_price %>
-</p>
 <br>
 
 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
@@ -37,3 +50,5 @@
           data-amount=""
           data-locale="auto">
 </script>
+
+</section>
