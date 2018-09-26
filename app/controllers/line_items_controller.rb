@@ -67,10 +67,10 @@ class LineItemsController < InheritedResources::Base
   def reduce_quantity
     if @line_item.quantity > 1
       @line_item.decrement!(:quantity)
-      redirect_to line_items_path
+      redirect_to store_index_path
     else
       @line_item.destroy
-      redirect_to line_items_path
+      redirect_to store_index_path
     end
   end
 

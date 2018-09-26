@@ -1,7 +1,7 @@
 <% content_for :header do %>
 <section class="hero is-warning">
   <div class="hero-body">
-    <div class="container">
+    <div class="container", data-turbolinks="false">
       <h1 class="title">
         Browse the latest on TokoPedia
       </h1>
@@ -15,13 +15,13 @@
         <p><%= link_to "Advance Search", new_search_path %></p>
         <br><br>
         <%= link_to cart_path(@cart), class:"navbar-item button is-warning" do %>
-                <span class="icon is-small">
-                  <i class="fa fa-shopping-cart"></i>
-                </span>
-                <span>Cart
-                  <%= cart_count_over_one %>
-                </span>
-              <% end %> </p>
+          <span class="icon is-small">
+            <i class="fa fa-shopping-cart"></i>
+          </span>
+          <span>Cart
+            <%= cart_count_over_one %>
+          </span>
+        <% end %> </p>
     </div>
   </div>
 </section>
