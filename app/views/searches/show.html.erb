@@ -1,0 +1,33 @@
+<% content_for :header do %>
+<section class="hero is-warning">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Search Result
+      </h1>
+    </div>
+  </div>
+</section>
+<% end %>
+
+<%= link_to 'Back', new_search_path %>
+  <% if @search.search_products.empty? %>
+    <p>No Records Found</p>
+  <% else %>  
+
+<div class="instrument-index-grid pt4">
+  <% @search.search_products.each do |f| %>
+  <div class="instrument border-light">
+    <div class="instrument-thumb", data-turbolinks="false">
+    <%= link_to image_tag(f.image_url(:thumb)), f %>
+    </div>
+
+    <div class="pa3", data-turbolinks="false">
+      <h3 class="fw7 f4 title"><%= link_to f.name, f %></h3>
+      <p class="has-text-gray fg pt1">Sold by <%= f.store.name %></p>
+      <p class="f3 fw6 has-text-right pt2 price"><%= number_to_currency(f.price) %></p>
+    </div>
+  </div>
+    <% end %>
+  <% end %>
+</div>

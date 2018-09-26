@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :stores
   resources :store
   resources :product_photos
+  resources :searches
   resources :products do
     member do
       put "like" => "products#like"

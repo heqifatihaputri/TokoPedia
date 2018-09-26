@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = current_user.store.products.page(params[:page]).per(4)
+    @products = current_user.store.products.page(params[:page]).per(4).where(["name LIKE?", "%#{params[:search]}%"])
   end
 
   # GET /products/1

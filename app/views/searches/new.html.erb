@@ -1,0 +1,48 @@
+<div class="column">
+  <div class="column is-8 is-centered">
+
+    <%= simple_form_for @search, html: { multipart: true } do |f| %>
+      <%= f.error_notification %>
+
+        <div class="columns">
+          
+          <div class="field column is-9">
+            <div class="control">
+              <%= f.input :keywords , required: true, input_html: { class:"input" }, wrapper: false, label_html: { class: "label" } %>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="control">
+              <b><%= f.label :category_id %></b><br />
+              <%= f.collection_select :category_id, Category.order(:name), :id, :name, include_blank: true %>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <%= f.input :min_price, size: 10, required: true, input_html: { class:"input" }, wrapper: false, label_html: { class: "label " } %>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control">
+            <%= f.input :max_price, size: 10, required: true, input_html: { class:"input" }, wrapper: false, label_html: { class: "label " } %>
+          </div>
+        </div>
+
+        <output id="list"></output>
+      <hr />
+
+      <div class="field is-grouped">
+        <div class="control">
+          <%= f.submit "Search", class: 'button is-light' %>
+          <p><%= link_to 'Back', store_index_path %></p>
+        </div>
+      </div>
+
+    <% end %>
+  </div>
+</div>
