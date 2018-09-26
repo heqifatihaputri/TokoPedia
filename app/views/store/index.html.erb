@@ -13,6 +13,15 @@
         </p><br>
       <% end %>
         <p><%= link_to "Advance Search", new_search_path %></p>
+        <br><br>
+        <%= link_to cart_path(@cart), class:"navbar-item button is-warning" do %>
+          <span class="icon is-small">
+            <i class="fa fa-shopping-cart"></i>
+          </span>
+          <span>Cart
+            <%= cart_count_over_one %>
+          </span>
+        <% end %>
     </div>
   </div>
 </section>

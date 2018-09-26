@@ -31,7 +31,7 @@ class LineItemsController < InheritedResources::Base
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to @line_item.cart, notice: 'Item added to cart' }
+        format.html { redirect_to product_path(product), notice: 'Item added to cart' }
         format.json { render :show, status: :created, location: @line_item }
       else
         format.html { render :new }
