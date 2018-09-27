@@ -24,5 +24,6 @@ Rails.application.routes.draw do
   put 'reduce_quantity' => 'line_items#reduce_quantity'
   mount Commontator::Engine => '/commontator'
   get 'gallery' => 'products#gallery'
+  get 'my_store' => 'application#my_store'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -47,8 +47,14 @@
               <% unless current_user.store %>
                 Please make a store to sell =>
               <% end %>
-                <%= link_to 'Store', stores_path, class: "navbar-item" %>
               </div>
+              <div class="navbar-item has-dropdown is-hoverable">
+                <%= link_to 'Store', "#", class: "navbar-item" %>
+              <div class="navbar-dropdown is-right">
+                <%= link_to current_user.store.name, my_store_path, class: "navbar-item" %>
+                <%= link_to 'All Stores', stores_path, class: "navbar-item" %>
+              </div>
+            </div>
               <div class="navbar-item has-dropdown is-hoverable">
                 <%= link_to 'Account', edit_user_registration_path, class: "navbar-item" %>
               <div class="navbar-dropdown is-right">
