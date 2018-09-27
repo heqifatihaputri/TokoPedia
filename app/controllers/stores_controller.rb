@@ -1,5 +1,5 @@
 class StoresController < ApplicationController
-  before_action :set_store, only: [:show, :edit, :update, :destroy]
+  before_action :set_store, only: [:show, :edit, :update, :destroy, :follow, :unfollow]
   before_action :authenticate_user!
 
   # GET /stores
@@ -60,6 +60,23 @@ class StoresController < ApplicationController
       format.html { redirect_to stores_url, notice: 'Store was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def follow
+    respond_to do |format|
+    if current_user.store == @store
+      format.html { redirect_to @store, notice: 'You cannot follow yourself.' }
+    else
+      current_user.follow(@store)
+      @follow = Follow.find_by(follower: current_user, followable: @store)
+        redirect_to store_path(@store)
+    end
+  end
+  end
+
+  def unfollow
+    current_user.stop_following(@store)
+    redirect_to store_path(@store)
   end
 
   private

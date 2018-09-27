@@ -9,4 +9,7 @@ class Store < ApplicationRecord
   def full_address
   [country, city, street].compact.join(‘, ‘)
   end
+
+  acts_as_followable
+  acts_as_follower
 end

@@ -35,6 +35,14 @@
           <td><%= @store.longitude %></td>
         </tr>
       </table>
+
+        <div class="follow-button-area" style="float: left">
+          <% if current_user.following?(@store) %>
+          <%= link_to "Following", {action: 'unfollow', id: @store.id}, method: 'post', class: 'btn btn-secondary btn-unfollow header-align' %>
+          <% elsif current_user != @store %>
+          <%= link_to "Follow", {action: 'follow', id: @store.id}, method: 'post', class: 'btn btn-primary btn-follow header-align' %>
+          <% end %>
+        </div>
     </div>
   </div>
 

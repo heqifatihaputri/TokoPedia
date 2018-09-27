@@ -25,5 +25,7 @@ Rails.application.routes.draw do
   mount Commontator::Engine => '/commontator'
   get 'gallery' => 'products#gallery'
   get 'my_store' => 'application#my_store'
+  post 'follow' => 'stores#follow'
+  post 'unfollow' => 'stores#unfollow'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
