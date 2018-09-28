@@ -63,15 +63,13 @@ class StoresController < ApplicationController
   end
 
   def follow
-    respond_to do |format|
     if current_user.store == @store
-      format.html { redirect_to @store, notice: 'You cannot follow yourself.' }
+      redirect_to store_path(@store), notice: 'You cant follow yourself.'
     else
       current_user.follow(@store)
       @follow = Follow.find_by(follower: current_user, followable: @store)
         redirect_to store_path(@store)
     end
-  end
   end
 
   def unfollow
