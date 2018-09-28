@@ -35,7 +35,7 @@
           </tr>
           <tr>
             <td class="has-text-weight-bold">Total Price :</td>
-            <td><%= @order.total_price %></td>
+            <td><%= number_to_currency(@order.total_price) %></td>
           </tr>
         </table>
       </div>
