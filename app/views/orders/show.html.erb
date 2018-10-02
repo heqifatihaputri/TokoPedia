@@ -44,11 +44,21 @@
 
 <br>
 
-<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+<%= form_tag charges_path do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <label class="amount">
+      <!-- <span>Amount: $5.00</span> -->
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="pk_test_LKDzCsEwekIqKLear1qql8qo"
           data-description="A month's subscription"
           data-amount=""
-          data-locale="auto">
-</script>
-
-</section>
+          data-locale="auto"></script>
+<% end %>
