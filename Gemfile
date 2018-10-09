@@ -50,6 +50,7 @@ gem 'geocoder'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem "acts_as_follower", github: "tcocca/acts_as_follower"
+gem 'counter_culture'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false

@@ -10,5 +10,10 @@
   <%= @sub_category.category_id %>
 </p>
 
+<p>
+  <strong>Product Count:</strong>
+  <%= @sub_category.products_count %>
+</p>
+
 <%= link_to 'Edit', edit_sub_category_path(@sub_category) %> |
 <%= link_to 'Back', sub_categories_path %>

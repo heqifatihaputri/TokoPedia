@@ -7,6 +7,7 @@
     <tr>
       <th>Name</th>
       <th>Category</th>
+      <th>Product Count</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= sub_category.name %></td>
         <td><%= sub_category.category_id %></td>
+        <td><%= sub_category.products_count %></td>
         <td><%= link_to 'Show', sub_category %></td>
         <td><%= link_to 'Edit', edit_sub_category_path(sub_category) %></td>
         <td><%= link_to 'Destroy', sub_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
